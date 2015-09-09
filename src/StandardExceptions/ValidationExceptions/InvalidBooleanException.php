@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the information being passed on to your function
@@ -19,7 +20,19 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidBooleanException extends InvalidValueException
 {
-    
+    use ThrowIf;
+
+    /**
+     * Checks if the value is boolean
+     * @param $value
+     * @return mixed
+     * @throws InvalidBooleanException
+     */
+    static public function throwIf($value) {
+        self::ifFalse(is_bool($value));
+        return $value;
+    }
+
     public function __construct($message = 'The data is not a valid boolean for this operation', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

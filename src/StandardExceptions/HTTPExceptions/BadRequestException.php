@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\HttpExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation relative to HTTP
@@ -21,7 +22,8 @@ namespace StandardExceptions\HttpExceptions;
 */
 class BadRequestException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Request was malformed, check error messages for more information', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

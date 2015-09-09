@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\OperationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception in the event that an operation would result
@@ -17,7 +18,8 @@ namespace StandardExceptions\OperationExceptions;
 */
 class OverflowException extends \OverflowException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Operation resulted in a value overflow', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

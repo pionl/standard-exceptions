@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\OperationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when someone is calling a function/method that
@@ -13,7 +14,8 @@ namespace StandardExceptions\OperationExceptions;
 */
 class NotImplementedYetException extends InvalidOperationException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Feature not implemented yet', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

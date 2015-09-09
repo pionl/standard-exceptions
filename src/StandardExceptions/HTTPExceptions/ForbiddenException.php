@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\HttpExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation relative to HTTP
@@ -23,7 +24,8 @@ namespace StandardExceptions\HttpExceptions;
 */
 class ForbiddenException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Authorization and credentials where sufficient but the operation is still forbidden due to your permissions', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

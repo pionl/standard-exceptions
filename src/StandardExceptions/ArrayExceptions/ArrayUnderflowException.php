@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ArrayExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation on an array
@@ -17,7 +18,8 @@ namespace StandardExceptions\ArrayExceptions;
 */
 class ArrayUnderflowException extends \UnderflowException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Cannot remove items from array/collection, it is already empty', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

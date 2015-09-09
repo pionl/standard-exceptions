@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\IOExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an IO operation that requires a distant connection
@@ -11,7 +12,8 @@ namespace StandardExceptions\IOExceptions;
 */
 class ConnectionRefusedException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Connection to remote host was refused', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

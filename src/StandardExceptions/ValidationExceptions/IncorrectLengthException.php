@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the length of a string is invalid
@@ -16,7 +17,8 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class IncorrectLengthException extends \LengthException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The length of the passed data is invalid for the requested operation', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

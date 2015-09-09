@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\OperationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception in the event that a method being called doesn't
@@ -19,7 +20,8 @@ namespace StandardExceptions\OperationExceptions;
 */
 class BadMethodCallException extends \BadMethodCallException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The call to specified method is invalid because of argument mismatch', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

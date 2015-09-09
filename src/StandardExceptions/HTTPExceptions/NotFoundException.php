@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\HttpExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation relative to HTTP
@@ -16,7 +17,8 @@ namespace StandardExceptions\HttpExceptions;
 */
 class NotFoundException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Requested resource cannot be found', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

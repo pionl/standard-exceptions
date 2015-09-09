@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\HttpExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation relative to HTTP
@@ -26,7 +27,8 @@ namespace StandardExceptions\HttpExceptions;
 */
 class UnprocessableEntityException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Request resulted in a resource that is not processable due to business rules. Check the errors below to understand what went wrong.', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

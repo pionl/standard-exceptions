@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the information being passed on to your function
@@ -19,7 +20,24 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidStringException extends InvalidValueException
 {
-    
+    use ThrowIf;
+
+    /**
+     * Tests if the value is string
+     *
+     * @param $value
+     *
+     * @return mixed
+     * @throws InvalidStringException
+     */
+    static public function throwIf($value)
+    {
+        self::ifFalse(is_string($value));
+
+        return $value;
+    }
+
+
     public function __construct($message = 'The data is not a valid string for this operation', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

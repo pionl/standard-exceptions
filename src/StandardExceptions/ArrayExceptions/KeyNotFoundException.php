@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ArrayExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation on an array tries to retrieve an element using a key
@@ -11,7 +12,8 @@ namespace StandardExceptions\ArrayExceptions;
 */
 class KeyNotFoundException extends \OutOfBoundsException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Key not found in array/collection', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

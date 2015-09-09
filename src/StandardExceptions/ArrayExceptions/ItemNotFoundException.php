@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ArrayExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation on an array to retrieve an expected element from it
@@ -17,7 +18,8 @@ namespace StandardExceptions\ArrayExceptions;
 */
 class ItemNotFoundException extends \OutOfBoundsException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Expected specific item in array/collection not found', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

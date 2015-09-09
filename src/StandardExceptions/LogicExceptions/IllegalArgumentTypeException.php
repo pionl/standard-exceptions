@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\LogicExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an argument passed on to a non typed-hint
@@ -16,7 +17,8 @@ namespace StandardExceptions\LogicExceptions;
 */
 class IllegalArgumentTypeException extends \InvalidArgumentException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Argument passed to function is not of expected type', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

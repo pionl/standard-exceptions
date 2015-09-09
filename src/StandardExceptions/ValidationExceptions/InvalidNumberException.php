@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the information being passed on to your function
@@ -16,7 +17,23 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidNumberException extends InvalidValueException
 {
-    
+    use ThrowIf;
+
+    /**
+     * Tests if the value is numeric
+     *
+     * @param $value
+     *
+     * @return mixed
+     * @throws InvalidStringException
+     */
+    static public function throwIf($value)
+    {
+        self::ifFalse(is_numeric($value));
+
+        return $value;
+    }
+
     public function __construct($message = 'The data is not a valid number for this operation', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

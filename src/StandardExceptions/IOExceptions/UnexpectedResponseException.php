@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\IOExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an IO operation based on a communication
@@ -15,7 +16,8 @@ namespace StandardExceptions\IOExceptions;
 */
 class UnexpectedResponseException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Unexpected response received while communicating with remote host', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

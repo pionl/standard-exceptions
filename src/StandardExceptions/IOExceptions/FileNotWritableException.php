@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\IOExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an IO operation tries to write some content to
@@ -11,7 +12,8 @@ namespace StandardExceptions\IOExceptions;
 */
 class FileNotWritableException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Cannot write to specified file resource', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

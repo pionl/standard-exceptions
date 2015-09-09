@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\OperationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception in the event something went wrong with the state
@@ -18,7 +19,8 @@ namespace StandardExceptions\OperationExceptions;
 */
 class InvalidOperationException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The attempted operation resulted in an unexpected/invalid state and cannot continue', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

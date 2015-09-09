@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ArrayExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an operation on an array
@@ -12,7 +13,8 @@ namespace StandardExceptions\ArrayExceptions;
 */
 class ArrayIsFullException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Cannot add items to array/collection, it is already full', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

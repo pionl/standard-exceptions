@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the format of a value is not respected
@@ -18,7 +19,8 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidFormatException extends InvalidValueException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Data could not be parsed because of format error', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

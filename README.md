@@ -13,6 +13,19 @@ Another use for this package is to clean up the existing exceptions that are unc
 - http://stackoverflow.com/questions/1102979/when-would-you-throw-a-domainexception-in-php
 - http://stackoverflow.com/questions/14171714/php-runtime-or-logic-exception
 
+Throwing only if condition is met
+==========================
+Exceptions uses ThrowIf trait to enable throwing only if the passed value is true or false. Some of the exceptions
+supports throwIf. This methods implements own conditions for throwing the exception. Example:
+
+InvalidStringException::throwIf("test") -- the exception is not throw, passed value is string
+InvalidStringException::throwIf(array()) -- exception is raised becouse the value is not string
+
+InvalidNumberException -- tests if the value is numeric
+InvalidBooleanException -- tests if the value is boolean
+ArrayIsEmptyException -- tests if the value is array and not empty
+InvalidArrayException -- tests if the value is array
+
 Re-classification of existing exceptions
 ========================================
 The existing exceptions are extended but stored in a new namespace tree that allows a better organisation of the different exceptions. Thus, if someone switches to the standard exception package, it should be backward compatible automatically.
@@ -52,6 +65,7 @@ Proposed class tree
     - ArrayIsFullException
     - ArrayUnderflowException
     - IndexNotFoundException
+    - InvalidArrayException
     - InvalidKeyException
     - KeyAlreadyExistsException
     - KeyNotFoundException

@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\OperationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception in the event that an operation that expected
@@ -17,7 +18,8 @@ namespace StandardExceptions\OperationExceptions;
 */
 class UnexpectedReturnValueException extends \UnexpectedValueException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Unexpected value returned by internal call', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

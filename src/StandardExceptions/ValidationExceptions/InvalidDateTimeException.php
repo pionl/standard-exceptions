@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the information being passed on to your function
@@ -16,7 +17,8 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidDateTimeException extends InvalidValueException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The data is not a valid datetime for this operation', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * The base of all validation exceptions. If none of the exceptions 
@@ -14,7 +15,8 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidValueException extends \RangeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The data passed on is invalid for this operation', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

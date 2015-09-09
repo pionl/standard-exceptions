@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ArrayExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when validating keys for your array based objects. If a key has an
@@ -14,7 +15,8 @@ namespace StandardExceptions\ArrayExceptions;
 */
 class InvalidKeyException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Format of key is invalid for this array/collection', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

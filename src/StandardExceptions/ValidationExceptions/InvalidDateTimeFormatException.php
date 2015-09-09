@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the date being passed is of an invalid format that
@@ -14,7 +15,8 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidDateTimeFormatException extends InvalidFormatException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Date/Time data could not be parsed into real date', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

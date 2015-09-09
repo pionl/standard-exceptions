@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\HttpExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception if the request cannot result in an
@@ -16,7 +17,8 @@ namespace StandardExceptions\HttpExceptions;
 */
 class NotAcceptableException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The resource cannot be represented this way', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\IOExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an IO operation that requires a distant connection
@@ -11,7 +12,8 @@ namespace StandardExceptions\IOExceptions;
 */
 class ConnectionLostException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Connection lost while exchanging data with remote host', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

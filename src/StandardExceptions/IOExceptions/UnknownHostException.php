@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\IOExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when an IO operation tries to reach a remote host that
@@ -11,7 +12,8 @@ namespace StandardExceptions\IOExceptions;
 */
 class UnknownHostException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The specified resource\'s hostname could not be resolved', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

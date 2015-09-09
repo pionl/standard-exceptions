@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\ValidationExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception when the string being passed on to your function
@@ -16,7 +17,8 @@ namespace StandardExceptions\ValidationExceptions;
 */
 class InvalidEmailFormatException extends InvalidFormatException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'Email could not be parsed', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);

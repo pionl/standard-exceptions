@@ -1,5 +1,6 @@
 <?php
 namespace StandardExceptions\HttpExceptions;
+use StandardExceptions\Traits\ThrowIf;
 
 /**
 * Use this exception if the request method is invalid in the 
@@ -13,7 +14,8 @@ namespace StandardExceptions\HttpExceptions;
 */
 class MethodNotAllowedException extends \RuntimeException
 {
-    
+    use ThrowIf;
+
     public function __construct($message = 'The method was not allowed or expected for this resource', $code = 0, $previous = NULL)
     {
     	parent::__construct($message, $code, $previous);
